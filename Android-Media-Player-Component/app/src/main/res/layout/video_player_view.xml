@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+
+    <View android:id="@+id/video_background"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Video Player -->
+    <VideoView
+        android:id="@+id/video_player_view_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="center" />
+
+    <!-- Playing status image -->
+    <ImageView
+        android:id="@+id/video_playing_status"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_gravity="center"
+        android:src="@drawable/icon_video_play_center" />
+
+    <!-- Loading progress bar -->
+    <ProgressBar
+        android:id="@+id/video_player_loading_progress_bar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <!-- Video Controller bar -->
+
+    <LinearLayout
+        android:id="@+id/video_player_footer_bar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_gravity="bottom"
+        android:background="@android:color/black"
+        android:orientation="horizontal"
+        android:alpha="200" >
+
+        <ImageButton
+            android:id="@+id/video_player_btn_play"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="12dp"
+            android:layout_marginRight="12dp"
+            android:background="@android:color/transparent"
+            android:scaleType="center"
+            android:src="@drawable/icon_video_play_center" />
+
+        <TextView
+            android:id="@+id/video_player_current_playing_time"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:paddingLeft="8dp"
+            android:textSize="12dp" />
+
+        <SeekBar
+            android:id="@+id/video_player_seekbar"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_weight=".5"
+            android:paddingLeft="8dp"
+            android:paddingRight="8dp"
+            android:progressDrawable="@drawable/video_player_seekbar_progress" />
+
+        <TextView
+            android:id="@+id/video_player_length_time"
+            android:layout_width="wrap_content"
+            android:layout_height="16dp"
+            android:layout_gravity="center_vertical"
+            android:paddingRight="8dp"
+            android:textSize="12dp" />
+    </LinearLayout>
+
+</FrameLayout>

@@ -21,16 +21,13 @@ import android.widget.TextView;
 import android.util.Log;
 
 import com.trungvu.android_media_player_component.R;
+import com.trungvu.android_media_player_component.utility.TimeUtil;
 
 
 /**
  * Created by TrungVT on 2/29/16.
  */
 public class AudioPlayerView extends RelativeLayout {
-
-    private static final int SECOND_BY_MILISECONDS = 1000;
-    private static final int MINUTE_BY_SECONDS = 60;
-    private static final String TIME_SPAN_BY_MINUTES_SECONDS_FORMATTER = "%02d:%02d";
 
     private static final int FULL_PERCENTAGE = 100;
 
@@ -51,8 +48,8 @@ public class AudioPlayerView extends RelativeLayout {
         @Override
         public void run() {
             int percent = (int) Math.floor(mPlayer.getCurrentPosition() * FULL_PERCENTAGE / mPlayer.getDuration());
-            mCurrentTimeTextView.setText(getMMSSFromMiliseconds(mPlayer.getCurrentPosition()));
-            mTotalTimeTextView.setText(getMMSSFromMiliseconds(mPlayer.getDuration()));
+            mCurrentTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(mPlayer.getCurrentPosition()));
+            mTotalTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(mPlayer.getDuration()));
             mSeekBar.setProgress(percent);
         }
     };
@@ -136,14 +133,14 @@ public class AudioPlayerView extends RelativeLayout {
                     onPlayAction();
                 }
                 mLoadingView.setVisibility(View.GONE);
-                mCurrentTimeTextView.setText(getMMSSFromMiliseconds(0));
-                mTotalTimeTextView.setText(getMMSSFromMiliseconds(mp.getDuration()));
+                mCurrentTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(0));
+                mTotalTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(mp.getDuration()));
             }
         });
         mPlayer.setOnCompletionListener(new OnCompletionListener() {
             @Override
             public void onCompletion(MediaPlayer mp) {
-                mCurrentTimeTextView.setText(getMMSSFromMiliseconds(mp.getDuration()));
+                mCurrentTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(mp.getDuration()));
                 mControlButton.setImageResource(R.drawable.icon_play);
                 cancelTimerTasks();
             }
@@ -178,7 +175,7 @@ public class AudioPlayerView extends RelativeLayout {
                     return;
                 }
                 int currentPosition = mPlayer.getDuration() * progress / FULL_PERCENTAGE;
-                mCurrentTimeTextView.setText(getMMSSFromMiliseconds(currentPosition));
+                mCurrentTimeTextView.setText(TimeUtil.getMMSSFromMiliseconds(currentPosition));
             }
         });
     }
@@ -214,7 +211,7 @@ public class AudioPlayerView extends RelativeLayout {
         }
         if (mTimer == null) {
             mTimer = new Timer();
-            mTimer.scheduleAtFixedRate(mPlayingTimerTask, 0, SECOND_BY_MILISECONDS);
+            mTimer.scheduleAtFixedRate(mPlayingTimerTask, 0, TimeUtil.SECOND_BY_MILISECONDS);
         }
     }
 
@@ -228,16 +225,5 @@ public class AudioPlayerView extends RelativeLayout {
             mTimer.purge();
             mTimer = null;
         }
-    }
-
-    /**
-     * mm:ss Date time format string
-     * @param miliseconds
-     * @return mm:ss format string
-     */
-    private static String getMMSSFromMiliseconds(int miliseconds) {
-        int totalSecs = miliseconds / SECOND_BY_MILISECONDS;
-        return String.format(TIME_SPAN_BY_MINUTES_SECONDS_FORMATTER,
-                totalSecs / MINUTE_BY_SECONDS, totalSecs % MINUTE_BY_SECONDS);
     }
 }
