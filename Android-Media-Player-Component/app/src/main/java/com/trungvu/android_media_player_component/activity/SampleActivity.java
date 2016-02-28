@@ -26,5 +26,7 @@ public class SampleActivity extends Activity {
         // Test Video Player
         VideoPlayerView videoPlayView = (VideoPlayerView) findViewById(R.id.video_player_view_sample);
         videoPlayView.start("http://www.html5videoplayer.net/videos/toystory.mp4");
+        // You can also try the below sample. So much fun!
+        // http://qthttp.apple.com.edgesuite.net/1010qwoeiuryfg/sl.m3u8
     }
 }
