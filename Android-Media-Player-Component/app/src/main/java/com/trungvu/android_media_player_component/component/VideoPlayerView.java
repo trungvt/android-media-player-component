@@ -32,7 +32,7 @@ import android.widget.VideoView;
 import com.trungvu.android_media_player_component.R;
 import com.trungvu.android_media_player_component.utility.TimeUtil;
 
-public class VideoPlayView extends RelativeLayout {
+public class VideoPlayerView extends RelativeLayout {
     private final int BAR_HIDING_DELAY_TIME_IN_MILISECONDS = 3000;
     private final int FULL_PERCENTAGE = 100;
     
@@ -75,16 +75,16 @@ public class VideoPlayView extends RelativeLayout {
     
     private VideoPlayViewListener mVideoPlayViewListener;
     
-    public VideoPlayView(Context context, AttributeSet attrs, int defStyle) {
+    public VideoPlayerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initView(context);
     }
     
-    public VideoPlayView(Context context, AttributeSet attrs) {
+    public VideoPlayerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
     
-    public VideoPlayView(Context context) {
+    public VideoPlayerView(Context context) {
         this(context, null, 0);
     }
     /**
