@@ -130,6 +130,7 @@ public class VideoPlayView extends RelativeLayout {
         // Animation
         initAnimation();
         mIsBarShowing = true;
+        setBackgroundColor(Color.BLACK);
     }
     /**
      * Set header bar of Video Play screen

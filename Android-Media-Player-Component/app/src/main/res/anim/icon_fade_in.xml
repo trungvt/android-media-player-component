@@ -15,7 +15,7 @@
 
  	
     <alpha
-        android:duration="@integer/lobi_menu_popup_fade_in_duration"
+        android:duration="100"
         android:fromAlpha="0.8"
         android:interpolator="@android:anim/decelerate_interpolator"
         android:toAlpha="1.0" />

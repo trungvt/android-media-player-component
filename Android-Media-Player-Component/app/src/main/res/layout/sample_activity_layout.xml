@@ -8,12 +8,27 @@
         android:layout_height="wrap_content"
         android:padding="10dp"
         android:text="Test Audio Player"
+        android:textStyle="bold"
         android:textColor="@android:color/black"/>
 
     <com.trungvu.android_media_player_component.component.AudioPlayerView
         android:id="@+id/audio_player_view_sample"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="100dp">
     </com.trungvu.android_media_player_component.component.AudioPlayerView>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="Test Video Player"
+        android:textStyle="bold"
+        android:textColor="@android:color/black"/>
+
+    <com.trungvu.android_media_player_component.component.VideoPlayView
+        android:id="@+id/video_player_view_sample"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+    </com.trungvu.android_media_player_component.component.VideoPlayView>
 
 </LinearLayout>
