@@ -26,7 +26,7 @@ import com.trungvu.android_media_player_component.R;
 /**
  * Created by TrungVT on 2/29/16.
  */
-public class MediaPlayerView extends RelativeLayout {
+public class AudioPlayerView extends RelativeLayout {
 
     private static final int SECOND_BY_MILISECONDS = 1000;
     private static final int MINUTE_BY_SECONDS = 60;
@@ -57,21 +57,21 @@ public class MediaPlayerView extends RelativeLayout {
         }
     };
 
-    public MediaPlayerView(Context context, AttributeSet attrs, int defStyle) {
+    public AudioPlayerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         initView(context);
     }
 
-    public MediaPlayerView(Context context, AttributeSet attrs) {
+    public AudioPlayerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public MediaPlayerView(Context context) {
+    public AudioPlayerView(Context context) {
         super(context, null);
     }
 
     protected void initView(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.media_player_view, this, true);
+        LayoutInflater.from(context).inflate(R.layout.audio_player_view, this, true);
         mHandler = new Handler();
         mPlayer = new MediaPlayer();
         mLoadingView = findViewById(R.id.audio_loading_prg);
@@ -95,7 +95,7 @@ public class MediaPlayerView extends RelativeLayout {
     }
 
     /**
-     * Load the media url then play it
+     * Load the audio url then play it
      * @param resourceUrl
      */
     public void loadResourceUrl(String resourceUrl) {
@@ -115,7 +115,7 @@ public class MediaPlayerView extends RelativeLayout {
     }
 
     /**
-     * Reset the media player
+     * Reset the audio player
      */
     public void release() {
         if (mPlayer != null) {
