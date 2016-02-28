@@ -6,7 +6,7 @@ import android.view.Window;
 
 import com.trungvu.android_media_player_component.R;
 import com.trungvu.android_media_player_component.component.AudioPlayerView;
-import com.trungvu.android_media_player_component.component.VideoPlayView;
+import com.trungvu.android_media_player_component.component.VideoPlayerView;
 
 /**
  * Created by TrungVT on 2/29/16.
@@ -24,7 +24,7 @@ public class SampleActivity extends Activity {
         audioPlayerView.loadResourceUrl("http://www.sample-videos.com/audio/mp3/crowd-cheering.mp3");
 
         // Test Video Player
-        VideoPlayView videoPlayView = (VideoPlayView) findViewById(R.id.video_player_view_sample);
+        VideoPlayerView videoPlayView = (VideoPlayerView) findViewById(R.id.video_player_view_sample);
         videoPlayView.start("http://www.html5videoplayer.net/videos/toystory.mp4");
     }
 }
